@@ -1,0 +1,52 @@
+import type { Post } from "@/types";
+
+export const mockPosts: Post[] = [
+  {
+    id: 1,
+    image: "/images/post1.jpg",
+    title: "Tourism",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "June 6, 2019",
+  },
+  {
+    id: 2,
+    image: "/images/post2.jpg",
+    title: "Sport",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "May 15, 2020",
+  },
+  {
+    id: 3,
+    image: "/images/post3.jpg",
+    title: "Fashion",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "April 3, 2021",
+  },
+  {
+    id: 4,
+    image: "/images/post4.jpg",
+    title: "Clothes",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "March 12, 2022",
+  },
+  {
+    id: 5,
+    image: "/images/post5.jpg",
+    title: "Clothes",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "January 28, 2023",
+  },
+  {
+    id: 6,
+    image: "/images/post6.jpg",
+    title: "Fashion",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "December 1, 2023",
+  },
+];
