@@ -3,12 +3,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/store";
-import Image from "next/image";
 import { fetchPosts } from "@/store/slices/postsSlice";
 
 import styles from "./page.module.css";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
+import PostCard from "@/components/PostCard/PostCard";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -36,23 +36,11 @@ export default function Home() {
 
       {loading === "loading" && <p>Загрузка постов...</p>}
 
+      {/* Список постов */}
       {loading === "succeeded" && (
-        <div>
+        <div className={styles.postsGrid}>
           {posts.map((post) => (
-            <div key={post.id}>
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={200}
-                height={150}
-                style={{ objectFit: "cover" }}
-              />
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
-              <p>
-                {post.date} — {post.author}
-              </p>
-            </div>
+            <PostCard key={post.id} post={post} />
           ))}
         </div>
       )}
