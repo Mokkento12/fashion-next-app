@@ -30,7 +30,9 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <p className={styles.cardBody}>{post.body}</p>
       <p className={styles.cardMeta}>
         {post.date}
-        <span className={styles.grey}> By </span>
+        <span className={styles.grey}>
+          <span className={styles.grey}> By </span>
+        </span>
         {post.author}
       </p>
     </article>

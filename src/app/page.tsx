@@ -9,6 +9,7 @@ import styles from "./page.module.css";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import PostCard from "@/components/PostCard/PostCard";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,16 +35,21 @@ export default function Home() {
       <Header />
       <Hero {...heroData} />
 
-      {loading === "loading" && <p>Загрузка постов...</p>}
+      {/* Основной грид из двух колонок */}
+      <div className={styles.postsLayout}>
+        {/* Левая колонка: посты */}
+        <main className={styles.postsGrid}>
+          {loading === "loading" && <p>Загрузка...</p>}
 
-      {/* Список постов */}
-      {loading === "succeeded" && (
-        <div className={styles.postsGrid}>
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
-      )}
+          {loading === "succeeded" &&
+            posts.map((post) => <PostCard key={post.id} post={post} />)}
+        </main>
+
+        {/* Правая колонка: сайдбар */}
+        <aside className={styles.sidebarWrapper}>
+          <Sidebar />
+        </aside>
+      </div>
     </div>
   );
 }
