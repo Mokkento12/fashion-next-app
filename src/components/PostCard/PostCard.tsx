@@ -17,7 +17,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <article className={styles.card}>
+    <div className={styles.card}>
       <Image
         src={post.image}
         alt={post.title}
@@ -26,16 +26,18 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         style={{ objectFit: "cover" }}
         className={styles.cardImage}
       />
-      <h3 className={styles.cardTitle}>{post.title}</h3>
-      <p className={styles.cardBody}>{post.body}</p>
-      <p className={styles.cardMeta}>
-        {post.date}
-        <span className={styles.grey}>
-          <span className={styles.grey}> By </span>
-        </span>
-        {post.author}
-      </p>
-    </article>
+      <div className={styles.cardDesc}>
+        <h3 className={styles.cardTitle}>{post.title}</h3>
+        <p className={styles.cardBody}>{post.body}</p>
+        <p className={styles.cardMeta}>
+          {post.date}
+          <span className={styles.grey}>
+            <span className={styles.grey}> By </span>
+          </span>
+          {post.author}
+        </p>
+      </div>
+    </div>
   );
 };
 

@@ -1,3 +1,5 @@
+// app/page.tsx
+
 "use client";
 
 import { useEffect } from "react";
@@ -8,18 +10,18 @@ import { fetchPosts } from "@/store/slices/postsSlice";
 import styles from "./page.module.css";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
-import PostCard from "@/components/PostCard/PostCard";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import PostContainer from "@/components/PostsContainer/PostsContainer";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
+  const { items: posts, loading } = useSelector(
+    (state: RootState) => state.posts
+  );
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-
-  const posts = useSelector((state: RootState) => state.posts.items);
-  const loading = useSelector((state: RootState) => state.posts.loading);
 
   const heroData = {
     backgroundImage: "/images/hero-img.jpeg",
@@ -35,17 +37,9 @@ export default function Home() {
       <Header />
       <Hero {...heroData} />
 
-      {/* Основной грид из двух колонок */}
+      {/* Макет с постами и сайдбаром */}
       <div className={styles.postsLayout}>
-        {/* Левая колонка: посты */}
-        <main className={styles.postsGrid}>
-          {loading === "loading" && <p>Загрузка...</p>}
-
-          {loading === "succeeded" &&
-            posts.map((post) => <PostCard key={post.id} post={post} />)}
-        </main>
-
-        {/* Правая колонка: сайдбар */}
+        <PostContainer posts={posts} loading={loading} />
         <aside className={styles.sidebarWrapper}>
           <Sidebar />
         </aside>
