@@ -21,8 +21,8 @@ interface PostContainerProps {
 
 export default function PostContainer({ posts, loading }: PostContainerProps) {
   const firstSixPosts = posts.slice(0, 6);
-  const featuredPost = posts[0];
-  const lastFourPosts = posts.slice(0, 4);
+  const featuredPost = posts[6];
+  const lastFourPosts = posts.slice(7, 11);
 
   return (
     <div className={styles.postContainer}>
