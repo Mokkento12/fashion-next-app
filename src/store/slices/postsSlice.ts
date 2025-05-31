@@ -10,7 +10,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 
 interface PostsState {
   items: Post[];
-  loading: "idle" | "loading" | "succeeded" | "failed";
+  loading: "idle" | "pending" | "succeeded" | "failed";
   error: string | null;
 }
 
@@ -27,7 +27,7 @@ const postsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPosts.pending, (state) => {
-        state.loading = "loading";
+        state.loading = "pending";
         state.error = null;
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {

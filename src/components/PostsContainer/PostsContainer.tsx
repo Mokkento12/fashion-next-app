@@ -3,16 +3,17 @@
 import PostCard from "@/components/PostCard/PostCard";
 import FeaturedPostCard from "@/components/FeaturedPostCard/FeaturedPostCard";
 import styles from "./PostsContainer.module.sass";
+import type { Post } from "@/types";
 
-type Post = {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  commentsCount: number;
-  image: string;
-};
+// type Post = {
+//   id: number;
+//   title: string;
+//   description: string;
+//   date: string;
+//   author: string;
+//   commentsCount: number;
+//   image: string;
+// };
 
 interface PostContainerProps {
   posts: Post[];
