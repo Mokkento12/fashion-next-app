@@ -89,4 +89,28 @@ export const mockPosts: Post[] = [
     author: "Rickie Baroch",
     date: "December 1, 2023",
   },
+  {
+    id: 12,
+    image: "/images/post12.jpg",
+    title: "jeans",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "December 1, 2023",
+  },
+  {
+    id: 13,
+    image: "/images/post13.jpg",
+    title: "City",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "December 1, 2023",
+  },
+  {
+    id: 14,
+    image: "/images/post14.jpg",
+    title: "Photography",
+    body: "One of Saturn’s largest rings may be newer than anyone",
+    author: "Rickie Baroch",
+    date: "December 1, 2023",
+  },
 ];
