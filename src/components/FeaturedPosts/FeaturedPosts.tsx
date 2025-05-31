@@ -1,5 +1,17 @@
-import type { Post } from "@/types";
 import styles from "./FeaturedPosts.module.sass";
+import PostCard from "@/components/PostCard/PostCard";
+import type { Post } from "@/types";
+
+// interface Post {
+//   id: number;
+//   title: string;
+//   body: string;
+//   description: string;
+//   date: string;
+//   author: string;
+//   commentsCount: number;
+//   image: string;
+// }
 
 interface FeaturedPostsProps {
   posts: Post[];
@@ -8,10 +20,12 @@ interface FeaturedPostsProps {
 export default function FeaturedPosts({ posts }: FeaturedPostsProps) {
   return (
     <section className={styles.featuredPosts}>
-      <h2 className={styles.title}>Featured Posts</h2>
+      <div className={styles.titleWrapper}>
+        <h2 className={styles.sidebarTitle}>Featured posts</h2>
+      </div>
       <div className={styles.featuredPostsContainer}>
         {posts.map((post) => (
-          <div key={post.id}>{post.title}</div>
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </section>
