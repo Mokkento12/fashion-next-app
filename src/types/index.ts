@@ -6,3 +6,9 @@ export interface Post {
   date: string;
   author: string;
 }
+
+export interface Social {
+  id: number;
+  image: string;
+  description: string;
+}
