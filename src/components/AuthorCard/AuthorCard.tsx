@@ -1,12 +1,11 @@
 import Image from "next/image";
 import styles from "./AuthorCard.module.sass";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const AuthorCard = () => {
   return (
     <section className={styles.authorSection}>
-      <div className={styles.titleWrapper}>
-        <h2 className={styles.sidebarTitle}>About the author</h2>
-      </div>
+      <SectionTitle>Categories</SectionTitle>
       <div className={styles.authorCard}>
         <Image
           src="/images/author.jpeg"
