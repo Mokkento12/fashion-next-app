@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postReducer from "./slices/postsSlice";
 import categoriesReducer from "./slices/categoriesSlice";
+import tagsReducer from "./slices/tagsSlice";
 
 export const store = configureStore({
   reducer: {
     posts: postReducer,
     categories: categoriesReducer,
+    tags: tagsReducer,
   },
 });
 

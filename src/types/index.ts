@@ -1,3 +1,4 @@
+export type { RootState } from "@/store";
 export interface Post {
   id: number;
   image: string;
