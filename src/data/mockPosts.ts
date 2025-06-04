@@ -132,7 +132,7 @@ export const mockPosts: Post[] = [
 export const mockPlaceholders = Array.from({ length: 12 }).map((_, index) => ({
   id: -index - 1,
   title: "Заголовок",
-  description: "Описание статьи",
+  body: "Описание статьи",
   image: "/images/placeholder.jpg", // можно использовать любое изображение
   author: "Author",
   date: "Jan 1, 2024",
