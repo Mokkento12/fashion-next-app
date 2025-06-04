@@ -2,18 +2,10 @@
 
 import PostCard from "@/components/PostCard/PostCard";
 import FeaturedPostCard from "@/components/FeaturedPostCard/FeaturedPostCard";
+import Pagination from "../Pagination/Pagination";
 import styles from "./PostsContainer.module.sass";
 import type { Post } from "@/types";
-
-// type Post = {
-//   id: number;
-//   title: string;
-//   description: string;
-//   date: string;
-//   author: string;
-//   commentsCount: number;
-//   image: string;
-// };
+import { useState } from "react";
 
 interface PostContainerProps {
   posts: Post[];
@@ -21,9 +13,27 @@ interface PostContainerProps {
 }
 
 export default function PostContainer({ posts, loading }: PostContainerProps) {
-  const firstSixPosts = posts.slice(0, 6);
-  const featuredPost = posts[6];
-  const lastFourPosts = posts.slice(7, 11);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
+
+  // Разделяем посты на основе текущей страницы
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  // Только те посты, которые относятся к текущей странице
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Общее количество страниц
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // скролл вверх при смене страницы
+  };
+
+  const firstSixPosts = currentPosts.slice(0, 6); // первые 6 постов
+  const featuredPost = currentPosts[6]; // 7-й пост
+  const lastFourPosts = currentPosts.slice(7, 11); // 8–11 посты
 
   return (
     <div className={styles.postContainer}>
@@ -49,6 +59,14 @@ export default function PostContainer({ posts, loading }: PostContainerProps) {
             lastFourPosts.map((post) => <PostCard key={post.id} post={post} />)}
         </div>
       </div>
+
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 }

@@ -1,0 +1,44 @@
+// components/Pagination/Pagination.module.sass
+
+.pagination
+  display: flex
+  justify-content: center
+  gap: 1rem
+  margin-top: 2rem
+
+.pageButton
+  padding: 0.5rem 1rem
+  background-color: transparent
+  border: 1px solid #ccc
+  color: #333
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+.pageButton:hover
+  background-color: #f0f0f0
+
+.pageButton[disabled]
+  cursor: not-allowed
+  opacity: 0.5
+  pointer-events: none
+
+.pageNumber
+  padding: 0.5rem 1rem
+  background-color: transparent
+  border: 1px solid #ccc
+  color: #333
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+.pageNumber.active
+  background-color: #e0e0e0
+
+.pageNumber:hover
+  background-color: #f0f0f0
+
+.dots
+  padding: 0.5rem 1rem
+  background-color: transparent
+  border: none
+  color: #333
+  cursor: default
