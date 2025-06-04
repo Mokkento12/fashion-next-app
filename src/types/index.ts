@@ -6,6 +6,7 @@ export interface Post {
   body: string;
   date: string;
   author: string;
+  tags: string[];
 }
 
 export interface Social {

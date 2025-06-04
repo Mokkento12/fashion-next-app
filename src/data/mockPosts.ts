@@ -8,6 +8,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "June 6, 2019",
+    tags: ["Travel", "Nature", "Adventure"],
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "May 15, 2020",
+    tags: ["Sports", "Fitness", "Health"],
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "April 3, 2021",
+    tags: ["Fashion", "Style", "Clothes"],
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "March 12, 2022",
+    tags: ["Clothes", "Trends", "Minimalism"],
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "January 28, 2023",
+    tags: ["Clothes", "Fashion", "Streetwear"],
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Fashion", "Outfits", "Accessories"],
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Beauty", "Makeup", "Styling"],
   },
   {
     id: 8,
@@ -64,6 +71,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Modern clothes", "Design", "Trends"],
   },
   {
     id: 9,
@@ -72,6 +80,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Black & White", "Monochrome", "Photography"],
   },
   {
     id: 10,
@@ -80,6 +89,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Minimalism", "Simplicity", "Design"],
   },
   {
     id: 11,
@@ -88,6 +98,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Lifestyle", "Happiness", "Mindfulness"],
   },
   {
     id: 12,
@@ -96,6 +107,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Jeans", "Denim", "Casual Wear"],
   },
   {
     id: 13,
@@ -104,6 +116,7 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["City Life", "Urban", "Architecture"],
   },
   {
     id: 14,
@@ -112,5 +125,6 @@ export const mockPosts: Post[] = [
     body: "One of Saturn’s largest rings may be newer than anyone",
     author: "Rickie Baroch",
     date: "December 1, 2023",
+    tags: ["Photography", "Tips", "Camera", "Lighting"],
   },
 ];

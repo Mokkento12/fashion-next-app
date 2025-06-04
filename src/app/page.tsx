@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/store";
 import { fetchPosts } from "@/store/slices/postsSlice";
@@ -16,10 +16,21 @@ export default function Home() {
   const { items: posts, loading } = useSelector(
     (state: RootState) => state.posts
   );
+  const selectedTags = useSelector(
+    (state: RootState) => state.tags.selectedTags
+  );
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
+
+  const filteredPosts = useMemo(() => {
+    if (selectedTags.length === 0) return posts;
+
+    return posts.filter((post) =>
+      post.tags.some((tag) => selectedTags.includes(tag))
+    );
+  }, [posts, selectedTags]);
 
   const heroData = {
     backgroundImage: "/images/hero-img.jpeg",
@@ -37,7 +48,7 @@ export default function Home() {
 
       {/* Макет с постами и сайдбаром */}
       <div className={styles.postsLayout}>
-        <PostContainer posts={posts} loading={loading} />
+        <PostContainer posts={filteredPosts} loading={loading} />
         <aside className={styles.sidebarWrapper}>
           <Sidebar />
         </aside>
