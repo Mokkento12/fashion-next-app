@@ -6,6 +6,7 @@ import Pagination from "../Pagination/Pagination";
 import styles from "./PostsContainer.module.sass";
 import type { Post } from "@/types";
 import { useState } from "react";
+import { mockPlaceholders } from "@/data/mockPosts";
 
 interface PostContainerProps {
   posts: Post[];
@@ -16,24 +17,31 @@ export default function PostContainer({ posts, loading }: PostContainerProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
-  // Разделяем посты на основе текущей страницы
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  // Только те посты, которые относятся к текущей странице
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  // Выбираем текущую порцию постов
+  let currentPosts = [];
 
-  // Общее количество страниц
-  const totalPages = Math.ceil(posts.length / postsPerPage);
+  if (currentPage === 1) {
+    // На первой странице — реальные посты + моки, если их мало
+    currentPosts = [...posts, ...mockPlaceholders].slice(0, 12);
+  } else {
+    // На других страницах — дублируем посты или добавляем моки
+    const repeatedPosts = [...posts, ...posts, ...posts]; // повторяем посты несколько раз
+    currentPosts = repeatedPosts.slice(indexOfFirstPost, indexOfLastPost);
+  }
+
+  const firstSixPosts = currentPosts.slice(0, 6);
+  const featuredPost = currentPosts[6];
+  const lastFourPosts = currentPosts.slice(7, 11);
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
-    window.scrollTo({ top: 0, behavior: "smooth" }); // скролл вверх при смене страницы
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  const firstSixPosts = currentPosts.slice(0, 6); // первые 6 постов
-  const featuredPost = currentPosts[6]; // 7-й пост
-  const lastFourPosts = currentPosts.slice(7, 11); // 8–11 посты
 
   return (
     <div className={styles.postContainer}>
@@ -60,6 +68,7 @@ export default function PostContainer({ posts, loading }: PostContainerProps) {
         </div>
       </div>
 
+      {/* Пагинация */}
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
