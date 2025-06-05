@@ -10,6 +10,7 @@ import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import PostContainer from "@/components/PostsContainer/PostsContainer";
+import InstagramSlider from "@/components/Slider/InstagramSlider";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -41,6 +42,15 @@ export default function Home() {
     commentsCount: 4,
   };
 
+  const instagramImages = [
+    "/images/1.jpg",
+    "/images/2.jpg",
+    "/images/3.jpg",
+    "/images/4.jpg",
+    "/images/5.jpg",
+    "/images/6.jpg",
+  ];
+
   return (
     <div className={styles.page}>
       <Header />
@@ -53,6 +63,7 @@ export default function Home() {
           <Sidebar />
         </aside>
       </div>
+      <InstagramSlider images={instagramImages} />
     </div>
   );
 }
