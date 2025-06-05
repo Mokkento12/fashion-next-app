@@ -11,6 +11,7 @@ import Hero from "@/components/Hero/Hero";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import PostContainer from "@/components/PostsContainer/PostsContainer";
 import InstagramSlider from "@/components/Slider/InstagramSlider";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -64,6 +65,7 @@ export default function Home() {
         </aside>
       </div>
       <InstagramSlider images={instagramImages} />
+      <Footer />
     </div>
   );
 }

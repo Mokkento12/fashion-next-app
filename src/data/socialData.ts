@@ -47,3 +47,9 @@ export const mockSocial: Social[] = [
     description: "642 followers",
   },
 ];
+
+// Массив только с изображениями для футера
+export const mockSocialFooter = mockSocial.map((social) => ({
+  id: social.id,
+  image: social.image,
+}));

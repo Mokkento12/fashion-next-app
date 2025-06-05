@@ -1,6 +1,8 @@
 /* Подключение шрифта */
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,700,700italic");
 
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 /* CSS Reset (базовый) */
 * {
   margin: 0;

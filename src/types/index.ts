@@ -12,5 +12,5 @@ export interface Post {
 export interface Social {
   id: number;
   image: string;
-  description: string;
+  description?: string;
 }
